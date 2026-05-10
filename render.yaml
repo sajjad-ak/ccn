@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: secure-instantchat
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    disk:
+      name: data-storage
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
